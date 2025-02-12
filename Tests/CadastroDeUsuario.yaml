@@ -1,0 +1,24 @@
+# Cadastro De Usuário e Login
+
+appId: com.example.stock_app
+---
+- runFlow: elements/loadElements.yaml
+- launchApp:
+      appId: "com.example.stock_app"
+      stopApp: true
+      clearState: true
+- tapOn: ${output.cadastro.CadastrarButton}
+- tapOn: ${output.cadastro.UsuarioInput}
+- inputRandomPersonName
+- copyTextFrom: ${output.cadastro.UsuarioInput} 
+- tapOn: ${output.cadastro.SenhaInput}
+- inputText: "SenhaExemplo"
+- tapOn: ${output.cadastro.CadastrarButton}
+
+# Login com o usuário recém-criado
+- tapOn: ${output.login.UsuarioInput}
+- pasteText
+- tapOn: ${output.login.SenhaInput}
+- inputText: "SenhaExemplo"
+- tapOn: ${output.login.EntrarButton}
+- assertVisible: ${output.home.BemVindoMensagem}

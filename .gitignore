@@ -1,0 +1,5 @@
+#Ignora os reports de execução
+report.html
+
+# Ignorar arquivos .qodo
+.qodo

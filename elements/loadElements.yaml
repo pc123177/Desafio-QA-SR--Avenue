@@ -1,0 +1,5 @@
+appId: com.example.stock_app
+---
+- runScript: Cadastro.js
+- runScript: Login.js
+- runScript: Home.js

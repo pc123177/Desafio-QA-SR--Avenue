@@ -1,0 +1,17 @@
+# Cadastro De Usuário com o mesmo username
+appId: com.example.stock_app
+---
+- runFlow: ../elements/LoadElements.yaml
+- launchApp:
+          appId: "com.example.stock_app"
+          stopApp: true
+          clearState: true
+
+# Cadastro do usuario
+- tapOn: ${output.cadastro.CadastrarButton}
+- tapOn: ${output.cadastro.UsuarioInput}
+- inputText: "Teste"
+- tapOn: ${output.cadastro.SenhaInput}
+- inputText: "Teste"
+- tapOn: ${output.cadastro.CadastrarButton}
+- assertVisible: ${output.cadastro.FalhaAoCadastrarMensagem}

@@ -1,0 +1,32 @@
+# Compra de Ação
+appId: com.example.stock_app
+---
+- runFlow: ../elements/LoadElements.yaml
+- launchApp:
+          appId: "com.example.stock_app"
+          stopApp: true
+          clearState: true
+
+# Login
+- tapOn: ${output.login.LoginButton}
+- tapOn: ${output.login.UsuarioInput}
+- inputText: "Teste"
+- tapOn: ${output.login.SenhaInput}
+- inputText: "Teste"
+- tapOn: ${output.login.EntrarButton}
+
+# Verifica se o login foi bem-sucedido
+- assertVisible: ${output.home.ComprarAcoesButton}
+
+# Navega para compra de ações
+- tapOn: ${output.home.ComprarAcoesButton}
+
+# Inserir quantidade e comprar ação
+- tapOn: ${output.CompraDeAcoes.SelectStockList}
+- tapOn: ${output.CompraDeAcoes.AlphabetIncList}
+- tapOn: ${output.CompraDeAcoes.QuantityButton}
+- inputText: 10
+- tapOn: ${output.CompraDeAcoes.BuyStockButton}
+
+# Verificar se a compra foi concluída
+- assertVisible: ${output.CompraDeAcoes.PurchaseSuccessfulMessage}

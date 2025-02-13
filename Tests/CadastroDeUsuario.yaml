@@ -2,18 +2,22 @@
 
 appId: com.example.stock_app
 ---
-- runFlow: elements/loadElements.yaml
+- runFlow: ..\elements\LoadElements.yaml
 - launchApp:
-      appId: "com.example.stock_app"
-      stopApp: true
-      clearState: true
+          appId: "com.example.stock_app"
+          stopApp: true
+          clearState: true
+# Cadastro de Usuário
 - tapOn: ${output.cadastro.CadastrarButton}
 - tapOn: ${output.cadastro.UsuarioInput}
 - inputRandomPersonName
-- copyTextFrom: ${output.cadastro.UsuarioInput} 
+- copyTextFrom: ${output.cadastro.UsuarioInput}
 - tapOn: ${output.cadastro.SenhaInput}
 - inputText: "SenhaExemplo"
 - tapOn: ${output.cadastro.CadastrarButton}
+
+# Verifica se o cadastro foi bem-sucedido
+- assertVisible: ${output.login.UsuarioInput}
 
 # Login com o usuário recém-criado
 - tapOn: ${output.login.UsuarioInput}

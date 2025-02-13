@@ -1,0 +1,16 @@
+# Login
+
+appId: com.example.stock_app
+---
+- runFlow: ..\elements\LoadElements.yaml
+- launchApp:
+        appId: "com.example.stock_app"
+        stopApp: true
+        clearState: true
+# Login com o usuário 
+- tapOn: ${output.login.UsuarioInput}
+- inputText: "Teste"
+- tapOn: ${output.login.SenhaInput}
+- inputText: "Teste"
+- tapOn: ${output.login.EntrarButton}
+- assertVisible: ${output.home.BemVindoMensagem}

@@ -3,3 +3,5 @@ appId: com.example.stock_app
 - runScript: Cadastro.js
 - runScript: Login.js
 - runScript: Home.js
+- runScript: CompraDeAcoes.js
+- runScript: ConsultarOrdens.js

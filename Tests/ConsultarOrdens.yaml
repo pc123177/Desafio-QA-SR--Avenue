@@ -1,0 +1,25 @@
+# Compra de Ação
+appId: com.example.stock_app
+---
+- runFlow: ../elements/LoadElements.yaml
+- launchApp:
+          appId: "com.example.stock_app"
+          stopApp: true
+          clearState: true
+
+# Login
+- tapOn: ${output.login.LoginButton}
+- tapOn: ${output.login.UsuarioInput}
+- inputText: "Teste"
+- tapOn: ${output.login.SenhaInput}
+- inputText: "Teste"
+- tapOn: ${output.login.EntrarButton}
+
+# Verifica se o login foi bem-sucedido
+- assertVisible: ${output.home.ConsultarOrdens}
+
+# Navega para Consulta de ordens
+- tapOn: ${output.home.ConsultarOrdens}
+
+# Verificar se a ordem está lá
+- assertVisible: ${output.consultarOrdens.AtivoMessage}
